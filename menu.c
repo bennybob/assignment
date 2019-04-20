@@ -15,10 +15,10 @@ int main()
  input4 = fopen("sub_encrypted_message1","r");
  input5 = fopen("sub_encrypted_message2","r");
  input6 = fopen("message2encrypt","r");
- int x,key;
- printf("please choose from the following options:\n 1.Decipher roatation cipher #1\n 2.Decipher roatation cipher #2\n 3.Encrypt using rotation cipher\n 4.Decipher substitution cipher #1\n 5.Decipher substitution cipher #2\n 6.Encrypt using substitution cipher\n");
+ int x,dkey,ekey;
+ printf("please choose from the following options:\n 1.Decipher roatation cipher #1 (key preset)\n 2.Decipher roatation cipher #2 (key preset)\n 3.Decipher roatation cipher #2 (input key)\n 4.Encrypt using rotation cipher\n 5.Decipher substitution cipher #1 (key preset)\n 6.Decipher substitution cipher #2 (key preset)\n 7.Encrypt using substitution cipher (key preset)\n");
  scanf("%d",&x);
- char a,b,c,d,e,f;
+ char a,b,c,d,e,f,g;
  
  switch (x)
  {
@@ -60,8 +60,32 @@ printf("\n");
 break;
     case 3:
     
+    printf("enter decryption key:\n");
+ scanf("%d",&dkey);
+ printf("decrypted message: \n");
+	
+ while (feof(input2)==0) {
+    
+     fscanf(input2,"%c",&g);
+  
+     
+    if(g >= 'A' && g <= 'Z'){
+			g = g + dkey;
+			
+			if(g > 'Z'){
+				g = g - 'Z' + 'A' - 1;
+}
+}
+printf("%c", g);
+}
+printf("\n");
+;
+break;
+    
+    case 4:
+    
  printf("enter encryption key:\n");
- scanf("%d",&key);
+ scanf("%d",&ekey);
  printf("encrypted message: \n");
 	
  while (feof(input3)==0) {
@@ -70,7 +94,7 @@ break;
   
      
     if(c >= 'A' && c <= 'Z'){
-			c = c + key;
+			c = c + ekey;
 			
 			if(c > 'Z'){
 				c = c - 'Z' + 'A' - 1;
@@ -81,7 +105,7 @@ printf("%c", c);
 printf("\n");
 ;
 break;
-    case 4:
+    case 5:
     while (feof(input4)==0) {
      fscanf(input4,"%c",&d);
      
@@ -116,7 +140,7 @@ printf("\n");
 ;
 break;
 
-    case 5:
+    case 6:
     while (feof(input5)==0) {
      fscanf(input5,"%c",&e);
      
@@ -150,7 +174,7 @@ printf("\n");
 ;
 break;
 
-    case 6:
+    case 7:
     while (feof(input6)==0) {
      fscanf(input6,"%c",&f);
      
