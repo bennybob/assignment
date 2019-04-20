@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include<stdio.h>
- 
+
  
 int main()
 {
  FILE *input;
- input = fopen("to_substitution_encrypt","r");
- int key;
- printf("enter key\n");
+ input = fopen("message2encrypt","r");
+int key;
+ printf("enter encryption key:\n");
  scanf("%d",&key);
- 	
+ printf("encrypted message: \n");
 	
  while (feof(input)==0) {
      char ch;
      fscanf(input,"%c",&ch);
-     
+  
      
     if(ch >= 'A' && ch <= 'Z'){
 			ch = ch + key;
@@ -23,6 +22,6 @@ int main()
 				ch = ch - 'Z' + 'A' - 1;
 }
 }
-printf("%c", ch);
+printf(" %c", ch);
 }
 }
