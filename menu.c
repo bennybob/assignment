@@ -420,6 +420,6 @@ switch (x)
     
     default:
     
-    printf("please choose an option\n");
+    printf("please choose a valid option\n");
 }
 }
